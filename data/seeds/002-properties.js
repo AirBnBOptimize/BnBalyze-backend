@@ -6,9 +6,9 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('properties').insert([
-        {user_id: 1, id:1,  "zipcode": "91210", "property_type": "Apartment", "room_type": "Entire home/apt", "accommodates": 5, "bathrooms": 5.0, "bedrooms": 5.0, "beds": 5.0, "bed_type": "Real Bed" },
-        { user_id: 1, id: 2, "zipcode": "91304", "property_type": "Apartment", "room_type": "Entire home/apt", "accommodates": 5, "bathrooms": 4.0, "bedrooms": 4.0, "beds": 4.0, "bed_type": "Real Bed" },
-        { user_id: 1, id: 3, "zipcode": "91304", "property_type": "Apartment", "room_type": "Entire home/apt", "accommodates": 5, "bathrooms": 4.0, "bedrooms": 4.0, "beds": 4.0, "bed_type": "Real Bed" }
+        {user_id: 1, id:1,  "neighborhood": "Pankow", "room_type": "Entire home/apt", "accommodates": 5, "bathrooms": 5.0, "bedrooms": 5.0, "number_of_reviews":243, "wifi": true, "cable_tv": false, "washer": true, "kitchen": true },
+        { user_id: 1, id: 2, "neighborhood": "Mitte", "room_type": "Entire home/apt", "accommodates": 9, "bathrooms": 3.0, "bedrooms": 3.0, "number_of_reviews":43, "wifi": true, "cable_tv": false, "washer": true, "kitchen": false  },
+        { user_id: 1, id: 3, "neighborhood": "Lichtenberg", "room_type": "Private Room", "accommodates": 13, "bathrooms": 4.0, "bedrooms": 7.0, "number_of_reviews":143, "wifi": true, "cable_tv": true, "washer": true, "kitchen": true   }
       ]);
     });
 };
