@@ -19,52 +19,54 @@ router.get('/',restricted,  (req, res) => {
 })
 router.post('/userproperties',     (req, res) => {
     axios
-        .post("http://flask-env.kmg6svp6sr.us-east-2.elasticbeanstalk.com/prediction", {
+        .post("https://bnbalyze-ds.herokuapp.com", {
             headers: { accept: "application/json" },
-            zipcode: req.body.zipcode.toString(),
-            bedrooms: parseFloat(req.body.bedrooms),
-            bathrooms: parseFloat(req.body.bathrooms),
-            property_type: req.body.property_type.toString(),
-            room_type: req.body.room_type.toString(),
-            accommodates: (req.body.accommodates),
-            beds: (req.body.beds),
-            bed_type: req.body.bed_type.toString()
+            "neighborhood": 2,
+            "room_type": 3,
+            "accommodates": 5,
+            "bedrooms": 5,
+            "number_of_reviews": 243,
+            "wifi": 1,
+            "cable_tv": 0,
+            "washer": 1,
+            "kitchen": 1,
+            "user_id": 1
         })
         .then(response =>
             res.status(200).json(response.data))
 
         .catch(err => res.status(500).json(err.response));
 })
-router.post("/test",  restricted,  async (req, res) => {
-    try {
-        request.post(
-            {
-                headers: { "content-type": "application/json" },
-                url:
-                    "http://flask-env.kmg6svp6sr.us-east-2.elasticbeanstalk.com/prediction",
-                zipcode: req.body.zipcode.toString(),
-                bedrooms: parseFloat(req.body.bedrooms),
-                bathrooms: parseFloat(req.body.bathrooms),
-                property_type: req.body.property_type,
-                room_type: req.body.room_type.toString(),
-                accommodates: (req.body.accommodates),
-                beds: (req.body.beds),
-                bed_type: req.body.bed_type.toString()
+// router.post("/test",  restricted,  async (req, res) => {
+//     try {
+//         request.post(
+//             {
+//                 headers: { "content-type": "application/json" },
+//                 url:
+//                     "http://flask-env.kmg6svp6sr.us-east-2.elasticbeanstalk.com/prediction",
+//                 zipcode: req.body.zipcode.toString(),
+//                 bedrooms: parseFloat(req.body.bedrooms),
+//                 bathrooms: parseFloat(req.body.bathrooms),
+//                 property_type: req.body.property_type,
+//                 room_type: req.body.room_type.toString(),
+//                 accommodates: (req.body.accommodates),
+//                 beds: (req.body.beds),
+//                 bed_type: req.body.bed_type.toString()
                 
-            },
-            (error, response, body) => {
-                if (error) {
-                    return console.error(error);
-                }
-                console.log(body);
-                res.status(200).json(JSON.parse(body));
-            }
-        );
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: "error" });
-    }
-});
+//             },
+//             (error, response, body) => {
+//                 if (error) {
+//                     return console.error(error);
+//                 }
+//                 console.log(body);
+//                 res.status(200).json(JSON.parse(body));
+//             }
+//         );
+//     } catch (error) {
+//         console.error(error);
+//         res.status(500).json({ message: "error" });
+//     }
+// });
 
 router.post('/account',  (req, res) => {
     Properties.add(req.body)

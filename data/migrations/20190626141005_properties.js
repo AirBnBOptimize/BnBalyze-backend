@@ -15,9 +15,6 @@ exports.up = function(knex, Promise) {
       .float('bedrooms')
       .notNullable();
       prop
-      .float('bathrooms', 2, 1)
-      .notNullable();
-      prop
       .float('number_of_reviews')
       .notNullable();
       prop
