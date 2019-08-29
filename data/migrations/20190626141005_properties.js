@@ -30,6 +30,18 @@ exports.up = function(knex, Promise) {
       .boolean('kitchen')
       .notNullable();
       prop
+      .string('photo_url')
+      .notNullable();
+      prop
+      .string('title')
+      .notNullable();
+      prop
+      .string('url')
+      .notNullable();
+      prop
+      .string('current_price')
+      .notNullable();
+      prop
       .float('recommendation_price')
       .notNullable();
       prop
