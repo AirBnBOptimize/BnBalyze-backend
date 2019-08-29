@@ -20,6 +20,10 @@ router.post('/register', (req, res) => {
         res.status(500).json(error)
     })
 })
+
+
+
+
 /*router.post('/userproperties', restricted, (req, res) => {
     axios
         .post("http://flask-env.kmg6svp6sr.us-east-2.elasticbeanstalk.com/prediction", {
@@ -66,6 +70,8 @@ function generateToken(user) {
 
     return jwt.sign(payload, secrets.jwtSecret, options)
 }
+
+
 
 
 module.exports = router;

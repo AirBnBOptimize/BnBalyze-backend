@@ -17,26 +17,16 @@ router.get('/',restricted,  (req, res) => {
         .catch(error =>
             res.status(500).send(error))
 })
+
 router.post('/userproperties',     (req, res) => {
     axios
-        .post("https://bnbalyze-ds.herokuapp.com", {
-            headers: { accept: "application/json" },
-            "neighborhood": 2,
-            "room_type": 3,
-            "accommodates": 5,
-            "bedrooms": 5,
-            "number_of_reviews": 243,
-            "wifi": 1,
-            "cable_tv": 0,
-            "washer": 1,
-            "kitchen": 1,
-            "user_id": 1
-        })
+        .post("https://bnbalyze-ds.herokuapp.com", req.body)
         .then(response =>
-            res.status(200).json(response.data))
+            res.status(200).json(response.data.results.y_hat))
 
-        .catch(err => res.status(500).json(err.response));
+        .catch(err => res.status(500).json(err));
 })
+
 // router.post("/test",  restricted,  async (req, res) => {
 //     try {
 //         request.post(
