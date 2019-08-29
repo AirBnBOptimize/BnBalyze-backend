@@ -30,6 +30,9 @@ exports.up = function(knex, Promise) {
       .boolean('kitchen')
       .notNullable();
       prop
+      .float('recommendation_price')
+      .notNullable();
+      prop
       .integer('user_id')
       .unsigned()
       .references('id')
